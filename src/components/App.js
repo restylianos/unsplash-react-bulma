@@ -8,10 +8,10 @@ class App extends React.Component {
   state = { fetchedImages: [], error: false };
 
   onFormSubmit = (userSearchTerm) => {
-    const response = Axios.get('https://api.unsplash.com/search/photos', {
+    Axios.get('https://api.unsplash.com/search/photos', {
       params: { query: userSearchTerm },
       headers: {
-        Authorization: 'Client-ID jALTnkzv9pITsufQwnvJXeCPbg1YWFrvTutrOJeYKqk',
+        Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`,
       },
     })
       .then((response) => {
